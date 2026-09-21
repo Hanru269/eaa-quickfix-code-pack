@@ -1,0 +1,38 @@
+/* tokens.css - a colour palette where every listed pair passes WCAG 2.1 AA.
+   Verify or change it with:  node tools/contrast-check.js --css css/tokens.css
+   Lines starting "check" are the pairs the tool tests: check [theme]: foreground background minimum-ratio */
+:root {
+  --text: #1a1f2b;      /* body text */
+  --muted: #4f586b;     /* secondary text */
+  --bg: #ffffff;
+  --surface: #f3f5f9;   /* cards, table stripes */
+  --link: #0b5cc4;
+  --accent: #0b5cc4;    /* primary buttons */
+  --on-accent: #ffffff;
+  --danger: #b3261e;    /* errors: never rely on colour alone, always add text or an icon */
+  --border: #6b7385;    /* input borders (non-text contrast needs 3:1) */
+  --focus: #0b5cc4;
+}
+/* check: --text --bg 4.5 */
+/* check: --muted --bg 4.5 */
+/* check: --muted --surface 4.5 */
+/* check: --link --bg 4.5 */
+/* check: --link --surface 4.5 */
+/* check: --on-accent --accent 4.5 */
+/* check: --danger --bg 4.5 */
+/* check: --border --bg 3 */
+/* check: --focus --bg 3 */
+
+:root[data-theme="dark"] {
+  --text: #e8ecf5; --muted: #aab3c7; --bg: #10151f; --surface: #1a2130;
+  --link: #7db4ff; --accent: #7db4ff; --on-accent: #0b1220; --danger: #ff8a80; --border: #8a94aa; --focus: #7db4ff;
+}
+/* check dark: --text --bg 4.5 */
+/* check dark: --muted --bg 4.5 */
+/* check dark: --muted --surface 4.5 */
+/* check dark: --link --bg 4.5 */
+/* check dark: --link --surface 4.5 */
+/* check dark: --on-accent --accent 4.5 */
+/* check dark: --danger --bg 4.5 */
+/* check dark: --border --bg 3 */
+/* check dark: --focus --bg 3 */
