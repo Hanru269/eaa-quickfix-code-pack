@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Icon buttons and links (after)</title>
+<link rel="stylesheet" href="../../css/tokens.css"><link rel="stylesheet" href="../../css/a11y-base.css"></head>
+<body><main><h1>Shop header</h1>
+<!-- 1. Icon font: hide the glyph from screen readers, add real text -->
+<a href="/cart"><i class="icon-cart" aria-hidden="true"></i><span class="visually-hidden">Cart (3 items)</span></a>
+<!-- 2. Inline SVG button: SVG is decoration, the button gets the name -->
+<button type="button" aria-label="Close notice"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M3 3h14v14H3z"/></svg></button>
+<!-- 3. Image inside a link: the alt text IS the link name - describe where it goes, not what the picture is -->
+<a href="/wishlist"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" width="20" height="20" alt="Wishlist"></a>
+<!-- 4. Icon + visible text: the visible words must be inside the accessible name (WCAG 2.5.3) -->
+<a href="/account"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><circle cx="10" cy="7" r="4"/></svg> My account</a>
+</main></body></html>
