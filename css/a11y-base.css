@@ -1,0 +1,32 @@
+/* a11y-base.css - drop-in accessibility basics. Every rule here is exercised by tests/run.js. */
+html { scroll-padding-top: 5rem; }            /* sticky headers must not hide the focused element */
+body { color: var(--text, #1a1f2b); background: var(--bg, #ffffff); }
+
+/* Text that is read aloud but not shown (icon buttons, extra context) */
+.visually-hidden {
+  position: absolute !important; width: 1px; height: 1px; margin: -1px; padding: 0; border: 0;
+  overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap;
+}
+
+/* Skip link: first Tab stop, visible only when focused */
+.skip-link {
+  position: absolute; left: 8px; top: -100px; z-index: 1000; padding: 10px 16px;
+  background: var(--text, #1a1f2b); color: var(--bg, #ffffff); border-radius: 4px; text-decoration: none;
+}
+.skip-link:focus { top: 8px; }
+
+/* Focus ring: a two-colour ring stays visible on light AND dark backgrounds */
+:focus-visible { outline: 3px solid var(--focus, #0b5cc4); outline-offset: 2px; box-shadow: 0 0 0 5px #ffffff; }
+:focus:not(:focus-visible) { outline: none; }   /* mouse clicks stay calm; keyboard always gets the ring */
+[tabindex="-1"]:focus { outline: none; box-shadow: none; }   /* programmatic focus targets (main, headings) */
+
+/* Comfortable touch/click targets (WCAG 2.2 asks for 24px, 44px is the safe default) */
+button, [role="button"], input:not([type="checkbox"]):not([type="radio"]), select, .btn { min-height: 44px; }
+
+/* Honour "reduce motion" */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}
+
+/* Windows high-contrast / forced colours: keep borders and focus visible */
+@media (forced-colors: active) { :focus-visible { outline-color: Highlight; } }
